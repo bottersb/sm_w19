@@ -1,0 +1,35 @@
+[33mcommit 05e1b7e239fce8b7dcda90157afb81af52a500f6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: jbogensperger <jbogen@gmx.at>
+Date:   Wed Nov 6 10:22:37 2019 +0100
+
+    initial transfer learning model VGG16
+
+[33mcommit e882f6596955e92fb719c6514acb9c3073ae7e88[m
+Author: jbogensperger <jbogen@gmx.at>
+Date:   Wed Nov 6 10:22:04 2019 +0100
+
+    exclude jpg pictures with gitignore
+
+[33mcommit 0dfe0b0e2973ff3e6a1ce5a2aa47e851dc8fe1f4[m
+Author: jbogensperger <39373798+jbogensperger@users.noreply.github.com>
+Date:   Wed Nov 6 10:02:14 2019 +0100
+
+    Delete main.py
+
+[33mcommit 7660393147b9b1d963026b5597052167601fdcb3[m
+Author: bottersb <benjamin.ottersbach@gmx.de>
+Date:   Mon Oct 14 22:32:20 2019 +0200
+
+    Added minimal working script using tensorflow
+
+[33mcommit 25c3520bd5e67a01d81ab04faeeb8a9a72a04065[m
+Author: bottersb <bottersb@users.noreply.github.com>
+Date:   Mon Oct 14 22:30:16 2019 +0200
+
+    Update README.md
+
+[33mcommit 0b18924f3d3c896958e69946b7d87abd3e000b62[m
+Author: bottersb <bottersb@users.noreply.github.com>
+Date:   Mon Oct 14 22:29:05 2019 +0200
+
+    Initial commit

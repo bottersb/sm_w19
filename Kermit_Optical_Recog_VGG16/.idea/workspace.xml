@@ -16,7 +16,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1SvDYPah1qmg1yizRW0V1HZOKWC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,9 +42,6 @@
       <module name="TransferLearningKermit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -97,6 +94,8 @@
       <workItem from="1572531687010" duration="15000" />
       <workItem from="1572858401686" duration="608000" />
       <workItem from="1573030389506" duration="1600000" />
+      <workItem from="1574091090028" duration="137000" />
+      <workItem from="1574092067740" duration="4964000" />
     </task>
     <servers />
   </component>
@@ -108,7 +107,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -1,6 +1,6 @@
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib
-from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 
 matplotlib.use("Agg")
 
@@ -27,7 +27,6 @@ import os
 import tensorflow as tf
 from keras import callbacks
 from keras import optimizers
-from keras.datasets import cifar10
 from keras.engine import Model
 from keras.applications import vgg16 as vgg
 from keras.layers import Dropout, Flatten, Dense, GlobalAveragePooling2D, BatchNormalization
@@ -36,7 +35,7 @@ from keras.utils import np_utils
 
 # %% Load Data
 BATCH_SIZE = 32
-EPOCHS = 40
+EPOCHS = 60
 NUM_CLASSES = 2
 LEARNING_RATE = 1e-4
 MOMENTUM = 0.9
@@ -110,7 +109,7 @@ history = model.fit_generator(train_generator,
                               epochs=EPOCHS,
                               verbose=1)
 
-model.save("models/")
+# model.save("models/midterm")
 
 # %% Evaluate Performance
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
@@ -118,9 +117,8 @@ t = f.suptitle('Deep Neural Net Performance', fontsize=12)
 f.subplots_adjust(top=0.85, wspace=0.3)
 
 epochs = list(range(1, EPOCHS + 1))
-#%%
-ax1.plot(epochs, history.history['acc'], label='Train Accuracy')
-ax1.plot(epochs, history.history['val_acc'], label='Validation Accuracy')
+ax1.plot(epochs, history.history['accuracy'], label='Train Accuracy')
+ax1.plot(epochs, history.history['val_accuracy'], label='Validation Accuracy')
 ax1.set_xticks(epochs)
 ax1.set_ylabel('Accuracy Value')
 ax1.set_xlabel('Epoch')
@@ -146,4 +144,8 @@ test_trans = (testY > 0.5)
 test_trans = np.argmax(test_trans, axis=1)
 conf_matrix = confusion_matrix(test_trans, pred_trans)
 f1Score =f1_score(test_trans, pred_trans)
+precision = precision_score(test_trans, pred_trans)
+recall = recall_score(test_trans, pred_trans)
+#%%
+tn, fp, fn, tp = conf_matrix.ravel()
 
