@@ -1,5 +1,12 @@
 #Pictures
 *.jpg
+#Audio FIles
+*.wav
+
+#data and model folder in general
+SimModelAudio/data/
+SimModelAudio/models/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
