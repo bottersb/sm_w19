@@ -2,7 +2,7 @@
 
 ## Complete student data
 * Johannes Bogensperger - 01427678
-* Benni TODO enter Bennies Data
+* Benjamin Ottersbach - 01576922
 
 ## Finding Kermit
 The two sub projects in this repository "Kermit_Optical_Recog_VGG16"and "SimModelAudio" are trying to recognize Kermit via images of the muppetshow and with the audio lines. This is a binary problem with two possible states "Kermit is present" and "Kermit is NOT present".
