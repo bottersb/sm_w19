@@ -1,6 +1,6 @@
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib
-from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
+from sklearn.metrics import confusion_matrix, f1_score
 
 matplotlib.use("Agg")
 
@@ -8,12 +8,14 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 from model_evaluation_utils import get_metrics
-
+from sklearn.metrics import roc_curve,roc_auc_score
+from sklearn.metrics import auc
 import sklearn.metrics
 # import the necessary packages
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, plot_roc_curve
 from keras.preprocessing.image import img_to_array
 from keras.utils import to_categorical
 from imutils import paths
@@ -24,9 +26,9 @@ import random
 import cv2
 import os
 
-import tensorflow as tf
 from keras import callbacks
 from keras import optimizers
+from keras.datasets import cifar10
 from keras.engine import Model
 from keras.applications import vgg16 as vgg
 from keras.layers import Dropout, Flatten, Dense, GlobalAveragePooling2D, BatchNormalization
@@ -35,7 +37,7 @@ from keras.utils import np_utils
 
 # %% Load Data
 BATCH_SIZE = 32
-EPOCHS = 60
+EPOCHS = 40
 NUM_CLASSES = 2
 LEARNING_RATE = 1e-4
 MOMENTUM = 0.9
@@ -76,7 +78,7 @@ x = GlobalAveragePooling2D()(last)
 x = BatchNormalization()(x)
 x = Dense(256, activation='relu')(x)
 x = Dense(256, activation='relu')(x)
-x = Dropout(0.6)(x)
+x = Dropout(0.3)(x)
 pred = Dense(NUM_CLASSES, activation='softmax')(x)
 model = Model(base_model.input, pred)
 
@@ -109,7 +111,7 @@ history = model.fit_generator(train_generator,
                               epochs=EPOCHS,
                               verbose=1)
 
-# model.save("models/midterm")
+model.save("models/final_model")
 
 # %% Evaluate Performance
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
@@ -117,6 +119,7 @@ t = f.suptitle('Deep Neural Net Performance', fontsize=12)
 f.subplots_adjust(top=0.85, wspace=0.3)
 
 epochs = list(range(1, EPOCHS + 1))
+#%%
 ax1.plot(epochs, history.history['accuracy'], label='Train Accuracy')
 ax1.plot(epochs, history.history['val_accuracy'], label='Validation Accuracy')
 ax1.set_xticks(epochs)
@@ -144,8 +147,22 @@ test_trans = (testY > 0.5)
 test_trans = np.argmax(test_trans, axis=1)
 conf_matrix = confusion_matrix(test_trans, pred_trans)
 f1Score =f1_score(test_trans, pred_trans)
-precision = precision_score(test_trans, pred_trans)
-recall = recall_score(test_trans, pred_trans)
-#%%
-tn, fp, fn, tp = conf_matrix.ravel()
+accuracy = accuracy_score(test_trans, pred_trans)
 
+print('F1 Score:' + str(f1Score))
+print('Accuracy:' + str(accuracy))
+print('Confusion Matrix'+ str(conf_matrix))
+
+y_val_cat_prob=model.predict(testX)
+#%% ROC CURVE
+
+fpr_keras, tpr_keras, thresholds_keras = roc_curve(test_trans, pred_trans)
+auc_keras = auc(fpr_keras, tpr_keras)
+plt.figure(1)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.plot(fpr_keras, tpr_keras, label='Keras (area = {:.3f})'.format(auc_keras))
+plt.xlabel('False positive rate')
+plt.ylabel('True positive rate')
+plt.title('ROC curve')
+plt.legend(loc='best')
+plt.show()
