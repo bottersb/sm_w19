@@ -19,14 +19,17 @@ DATA_DIR1 = 'data/kermit_big/'  # The full dataset of all audio files initially 
 ## Set Up of the enviroment and Entry point of the code
 Our image and audio samples are contained in compressed "data" folders for the projects in the github release "V1.0".
 Unzip the files:
-* "data_for_audio_recognition_kermit.zip" in SimModelAudio/data
-* "data_for_visual_rocognition_kermit.zip" in Kermit_Optical_Recog_VGG16/data
+* "data_for_audio_recognition_kermit.zip" in SimModelAudio/data/..
+* "data_for_visual_rocognition_kermit.zip" in Kermit_Optical_Recog_VGG16/data/..
+(don't forget to create the data folder.. empty folders are not added by git and I didn't see the point in adding a .keep file or dummy file..)
 
 and run the corresponding main methods:
 * "Kermit_Optical_Recog_VGG16" - main.py
 * "SimModelAudio" - TODO
 
-Furthermore the image classification keras.model can be found as well in the relase (final_keras_model) and be loaded via keras.models.load_model.
+Furthermore the image classification keras.model can be found as well in the project folder (models/final_model) and be loaded via keras.models.load_model.
+
+The python environments can be built via the requirements.txt files in each project folder!
 
 ## Performance indicators (e.g. Recall, Precision, etc.)
 
@@ -40,6 +43,10 @@ Final results for the test set:
 | ----------------: |:---------------------:| -------------:|
 | Not present       | 815                 | 8          |
 | Present           | 5                  | 330           |
+
+#### ROC Curve
+
+![alt text](https://github.com/bottersb/sm_w19/blob/master/Kermit_Optical_Recog_VGG16/Roc_Curve_VGG16.png)
 
 
 ### Audio detection
@@ -55,7 +62,8 @@ The final results for the big and "dirty" dataset which is highly unbalanced and
 | Not present       | 12041                 | 1072          |
 | Present           | 1257                  | 915           |
 
-TODO INSERT ROC CURVE FOR KERMIT BIG
+#### ROC Curve
+![alt text](https://github.com/bottersb/sm_w19/blob/master/SimModelAudio/ROC_curve_kermit_big.png)
 
 #### KERMIT - SMALL/PURE
 Even though the training sets are always upsampled via SMOTE we couldn't achieve better results on the original highly unbalanced distribution of the test data.
@@ -69,6 +77,8 @@ Even though the training sets are always upsampled via SMOTE we couldn't achieve
 | Present           | 215                  | 205           |
 
 
+#### ROC Curve
+![alt text](https://github.com/bottersb/sm_w19/blob/master/SimModelAudio/ROC_curve_kermit_puresmall.png)
 
 ## Timesheets
 Our timesheet can be found online:
