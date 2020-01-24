@@ -5,16 +5,18 @@
 * Benjamin Ottersbach - 01576922
 
 ## Finding Kermit
-The two sub projects in this repository "Kermit_Optical_Recog_VGG16"and "SimModelAudio" are trying to recognize Kermit via images of the muppetshow and with the audio lines. This is a binary problem with two possible states "Kermit is present" and "Kermit is NOT present".
+The two sub projects in this repository "Kermit_Optical_Recog_VGG16"and "SimModelAudio" contain programs and data to recognize Kermit the frog via images and sound samples taken from three episodes of the Muppet Show. This is a binary problem with the two possible states "Kermit is present" and "Kermit is NOT present".
 
-The first project "Kermit_Optical_Recog_VGG16" which is based on a CNN for image recognition, is the final architecture after we tried simple approaches from internet tutorials. For this final architecture, we chose to use the VGG-16 from K. Simonyan and A. Zisserman (Oxford University) proposed in the paper “Very Deep Convolutional Networks for Large-Scale Image Recognition”. This CNN is made for transfer-learning and already trained on various various image like the ImageNet dataset, therefore we only need to train the last layers. For the adaption of this model to our problem we put two dense layer on top of it and a dropout layer to prevent overfitting.
+The first project "Kermit_Optical_Recog_VGG16" which is based on a CNN for image recognition, is the final architecture after we tried simple approaches from internet tutorials. For this final architecture, we chose to use the VGG-16 from K. Simonyan and A. Zisserman (Oxford University) proposed in the paper “Very Deep Convolutional Networks for Large-Scale Image Recognition”. This CNN is made for transfer-learning and already trained on various various image like the ImageNet dataset. Therefore we only needed to train the last layers. For the adaption of this model to our problem we put two dense layer on top of it and a dropout layer to prevent overfitting.
 
-With the second project "SimModelAudio", we experienced far more problems. After following some tutorial for speaker recognition, we came to the conclusion that LSTM classification layers upon the Mel-frequency cepstral coefficients (MFCC) of the audio data is not capable of providing sufficient results. A further learning was that its crucial to reduce the number of coefficients returned by librosa from 20 down to 13/7 since the last coefficient will contain mostly noise. After CNNs didn't deliver the desired results, we chose to use a simple Random Forest as classifier. We had to restrict our hyperparameter searchspace drastically and stroed intermediate MFC coefficients before model training, due to long runtimes.
+With the second project "SimModelAudio" we experienced far greater problems. After following some tutorials for speaker recognition, we came to the conclusion that LSTM classification layers upon the Mel-frequency cepstral coefficients (MFCC) of the audio data are not capable of providing sufficient results. We found that it is crucial to reduce the number of coefficients returned by librosa from 20 down to 13/7 since the last coefficient will contain mostly noise. After CNNs didn't deliver the desired results, we chose to use a simple Random Forest as classifier. We had to restrict our hyperparameter searchspace drastically and stored intermediate MFC coefficients before model training due to long runtimes. Since the results of our approaches were not satisfactory we tried various sampling techniques and ended up with SMOTE upsampling. 
 
-Since the results were not satisfying with our approaches we tried various sampling techniques and ended up with SMOTE upsampling. We have two possible datasets for learning KERMIT. They can be altering the DATA_DIR1, setting the dataset to learn the classifier upon.
+We have prepared two datasets for learning to identify KERMIT. Adapting DATA_DIR1 in the code will set the dataset to learn the classifier upon.
 
-DATA_DIR1 = 'data/kermit/'      # A dataset containing a refined set of very pure samples of Kermits voice without background noize etc.  
-DATA_DIR1 = 'data/kermit_big/'  # The full dataset of all audio files initially labelled as "Kermit present" 
+DATA_DIR1 = 'data/kermit/'      # A dataset containing a refined set of very pure samples of Kermits voice without background noise, music, audience laughter  etc.  
+DATA_DIR1 = 'data/kermit_big/'  # The full dataset of all audio files initially labelled as "Kermit present", may be considered ground truth 
+
+While the "pure" dataset is prefered qualitywise it only contains 1min50sec worth of samples.
 
 ## Set Up of the enviroment and Entry point of the code
 Our image and audio samples are contained in compressed "data" folders for the projects in the github release "V1.0".
