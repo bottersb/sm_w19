@@ -29,16 +29,16 @@ and run the corresponding main methods:
 
 ## Performance indicators (e.g. Recall, Precision, etc.)
 
-### 
+### Image detection
+Final results for the test set:
 
 ### Audio detection
-The final results for the big dataset which is highly unbalanced and uses all kermit samples (not just pure ones) 
+The final results for the big and "dirty" dataset which is highly unbalanced and uses all kermit samples (not just pure ones) 
 
 Accuracy: 0.84762839385018
 F1 Score: 0.4400096176965617
 
-
-| Confusion Matrix  | Predicted Not present | Predicted     |
+| Confusion Matrix  | Predicted Not present | Predicted Present  |
 | ----------------: |:---------------------:| -------------:|
 | Not present       | 12041                 | 1072          |
 | Present           | 1257                  | 915           |
