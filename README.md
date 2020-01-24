@@ -46,7 +46,7 @@ Final results for the test set:
 
 #### ROC Curve
 
-![alt text](https://github.com/bottersb/sm_w19/blob/master/Kermit_Optical_Recog_VGG16/Roc_Curve_VGG16.png =250x)
+![alt text](https://github.com/bottersb/sm_w19/blob/master/Kermit_Optical_Recog_VGG16/Roc_Curve_VGG16.png )
 
 
 ### Audio detection
