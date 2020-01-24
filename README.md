@@ -1,8 +1,8 @@
 # 188.501 Similarity Modeling 1 - WS 2019
 
 ## Complete student data
-Johannes Bogensperger - 01427678
-Benni TODO enter Bennies Data
+* Johannes Bogensperger - 01427678
+* Benni TODO enter Bennies Data
 
 ## Finding Kermit
 The two sub projects in this repository "Kermit_Optical_Recog_VGG16"and "SimModelAudio" are trying to recognize Kermit via images of the muppetshow and with the audio lines. This is a binary problem with two possible states "Kermit is present" and "Kermit is NOT present".
@@ -22,12 +22,12 @@ DATA_DIR1 = 'data/kermit_big/' # The full dataset of all audio files initially l
 ## Set Up of the enviroment and Entry point of the code
 Our image and audio samples are contained in compressed "data" folders for the projects in the github release "V1.0".
 Unzip the files:
-    "data_for_audio_recognition_kermit.zip" in SimModelAudio/data
-    "data_for_visual_rocognition_kermit.zip" in Kermit_Optical_Recog_VGG16/data
+* "data_for_audio_recognition_kermit.zip" in SimModelAudio/data
+* "data_for_visual_rocognition_kermit.zip" in Kermit_Optical_Recog_VGG16/data
 
 and run the corresponding main methods:
-    "Kermit_Optical_Recog_VGG16" - main.py
-    "SimModelAudio" - TODO
+* "Kermit_Optical_Recog_VGG16" - main.py
+* "SimModelAudio" - TODO
 
 ## Performance indicators (e.g. Recall, Precision, etc.)
 
