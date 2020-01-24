@@ -13,7 +13,7 @@ With the second project "SimModelAudio", we experienced far more problems. After
 
 Since the results were not satisfying with our approaches we tried various sampling techniques and ended up with SMOTE upsampling. We have two possible datasets for learning KERMIT. They can be altering the DATA_DIR1, setting the dataset to learn the classifier upon.
 
-DATA_DIR1 = 'data/kermit/'      # A dataset containing a refined set of very pure samples of Kermits voice without background noize etc.
+DATA_DIR1 = 'data/kermit/'      # A dataset containing a refined set of very pure samples of Kermits voice without background noize etc.  
 DATA_DIR1 = 'data/kermit_big/'  # The full dataset of all audio files initially labelled as "Kermit present" 
 
 ## Set Up of the enviroment and Entry point of the code
