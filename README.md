@@ -33,6 +33,15 @@ Furthermore the image classification keras.model can be found as well in the rel
 ### Image detection
 Final results for the test set:
 
+* F1 Score:0.9806835066864783
+* Accuracy:0.9887737478411054
+
+| Confusion Matrix  | Predicted Not present | Predicted Present  |
+| ----------------: |:---------------------:| -------------:|
+| Not present       | 815                 | 8          |
+| Present           | 5                  | 330           |
+
+
 ### Audio detection
 
 #### KERMIT - BIG
