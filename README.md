@@ -24,8 +24,8 @@ Unzip the files:
 (don't forget to create the data folder.. empty folders are not added by git and I didn't see the point in adding a .keep file or dummy file..)
 
 and run the corresponding main methods:
-* "Kermit_Optical_Recog_VGG16" - main.py
-* "SimModelAudio" - TODO
+* "Kermit_Optical_Recog_VGG16" - Kermit_Optical_Recog_VGG16/main.py
+* "SimModelAudio" - SimModelAudio/main.py
 
 Furthermore the image classification keras.model can be found as well in the project folder (models/final_model) and be loaded via keras.models.load_model.
 
